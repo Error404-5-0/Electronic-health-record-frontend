@@ -1,5 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+#bg{
+  height: 500px;
+}
+.height{
+  height: 100vh;
+}
+.flex1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 2px solid black; */
+}
+.flex2{
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+  /* border: 2px solid black; */
+}
+
+.flexitem{
+  margin:50px;
+  /* font-sizer; */
+  /* font-size; */
+}
+
+#hero-content{
+  font-size:larger;
+}
+
+.sub-topic-about {
+  left: 376px;
+}
+
+section {
+  position: relative;
+  /* height: 100vh; */
+  width: 100%;
+  /* background: #a5ccff; */
+  background: white;
+  overflow: hidden;
+}
+
+/* .para:hover {
+  background: #a5ccff;
+} */
+
+.color{
+  /* background-color: #013b84; */
+  background-color: white;
 }
