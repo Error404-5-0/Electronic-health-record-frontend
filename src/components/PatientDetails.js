@@ -36,11 +36,11 @@ const PatientDetails = () => {
     <Box sx={{ height: "100%", width: "100%" }} p={{ lg: 3, sm: 2 }}>
       <Stack direction={"column"} gap={5} px={{ lg: 5, md: 3, sm: 1 }}>
         <Box
+          className="bg-sky-200"
           width="100%"
           textAlign={"center"}
           fontSize={35}
           borderRadius={"10px"}
-          sx={{ backgroundColor: "lightblue" }}
         >
           Patient Details
         </Box>
@@ -50,7 +50,7 @@ const PatientDetails = () => {
           textAlign={"center"}
           fontSize={35}
           borderRadius={"10px"}
-          sx={{ backgroundColor: "lightblue" }}
+          className="bg-sky-200"
         >
           Add More Details
         </Box>
