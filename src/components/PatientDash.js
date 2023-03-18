@@ -1,7 +1,43 @@
 import React from "react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import { Box } from "@mui/material";
+import Cardcomp from "./Cardcomp";
+import Doctorspage from "./Doctorspage";
+import PatientDetails from "./PatientDetails";
 
 const PatientDash = () => {
-  return <div>patientdash</div>;
+  const [value, setValue] = React.useState(2);
+
+  const handleChange = (event, newValue) => {
+    console.log(newValue);
+    setValue(newValue);
+  };
+  const getTabs = () => {
+    switch (value) {
+      case 0:
+        return <Doctorspage />;
+      case 1:
+        return <PatientDetails />;
+    }
+  };
+  return (
+    <>
+      <Box p={3} display="flex" justifyContent="center" alignItems={"center"}>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="disabled tabs example"
+        >
+          <Tab label="Discover" />
+          <Tab label="Profile" />
+          <Tab label="Medical Record" />
+          <Tab label="Previous" />
+        </Tabs>
+      </Box>
+      <Box>{getTabs()}</Box>
+    </>
+  );
 };
 
 export default PatientDash;
