@@ -5,6 +5,8 @@ import { Box } from "@mui/material";
 import Cardcomp from "./Cardcomp";
 import Doctorspage from "./Doctorspage";
 import PatientDetails from "./PatientDetails";
+import MedicalRecord from "./MedicalRecord";
+import Addmedicalrec from "./Addmedicalrec";
 
 const PatientDash = () => {
   const [value, setValue] = React.useState(2);
@@ -19,6 +21,10 @@ const PatientDash = () => {
         return <Doctorspage />;
       case 1:
         return <PatientDetails />;
+      case 2:
+        return <MedicalRecord />;
+      case 3:
+        return <Addmedicalrec />;
     }
   };
   return (
@@ -32,7 +38,7 @@ const PatientDash = () => {
           <Tab label="Discover" />
           <Tab label="Profile" />
           <Tab label="Medical Record" />
-          <Tab label="Previous" />
+          <Tab label="Add Record" />
         </Tabs>
       </Box>
       <Box>{getTabs()}</Box>

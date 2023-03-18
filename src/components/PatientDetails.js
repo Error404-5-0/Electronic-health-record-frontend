@@ -4,14 +4,17 @@ import Patientcard from "./Patientcard";
 import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormHelperText from "@mui/material/FormHelperText";
+import SendIcon from "@mui/icons-material/Send";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import Button from "@mui/material/Button";
 
 const PatientDetails = () => {
   const [gender, setgender] = React.useState("");
   const [blood, setBlood] = React.useState("");
   const [age, setage] = React.useState("");
+  const [height, setHeight] = React.useState("");
+  const [weight, setWeight] = React.useState("");
 
   const handleChange = (event) => {
     setgender(event.target.value);
@@ -22,8 +25,13 @@ const PatientDetails = () => {
   const handleage = (event) => {
     setage(event.target.value);
   };
-  console.log(age);
-  console.log(blood);
+  const handleheight = (event) => {
+    setHeight(event.target.value);
+  };
+  const handleweight = (event) => {
+    setWeight(event.target.value);
+  };
+
   return (
     <Box sx={{ height: "100%", width: "100%" }} p={3}>
       <Stack direction={"column"} gap={5} px={5}>
@@ -46,7 +54,7 @@ const PatientDetails = () => {
         >
           Add More Details
         </Box>
-        <Stack direction={"column"} px={{ lg: 45, sm: 0 }}>
+        <Stack direction={"column"} px={{ lg: 45, sm: 0 }} gap={5}>
           <Stack direction={"row"} gap={5}>
             {" "}
             <TextField
@@ -76,7 +84,23 @@ const PatientDetails = () => {
               </Select>
             </FormControl>
           </Stack>
-          <Stack direction={"row"} gap={5}></Stack>
+          <Stack direction={"row"} gap={5}>
+            <TextField
+              id="outlined-required"
+              label="Height"
+              onChange={handleheight}
+            />
+            <TextField
+              id="outlined-required"
+              label="Weight"
+              onChange={handleweight}
+            />
+          </Stack>
+          <Box alignItems={"center"}>
+            <Button variant="contained" endIcon={<SendIcon />}>
+              Upload
+            </Button>
+          </Box>
         </Stack>
       </Stack>
     </Box>
