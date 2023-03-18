@@ -14,7 +14,7 @@ export default function Hero() {
           <h3 className="flexitem text-5xl font-bold font-3xl">
             Electronic Health Record
           </h3>
-          <div id="hero-content" className="flexitem">
+          <div id="" className="hero-content flexitem">
             Lorem Ipsum1 is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
@@ -28,14 +28,14 @@ export default function Hero() {
         </div>
       </div>
 
-      <section className="pt-10 text-5xl font-bold">
+      <section className="pt-10 ">
         <div className="text-5xl font-bold text-center pb-10"> About us </div>
         {/* <div className="para mt-20 text-lg w-1/2 m-auto">Lorem Ipsum1 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</div> */}
         <div className="text-center  sub-topic-about text-3xl font-bold ">
           {" "}
           Introduction{" "}
         </div>
-        <div className="para  text-lg w-1/2 m-auto pb-10">
+        <div className="para hero-content w-1/2 m-auto pb-10">
           At EHR, we're dedicated to providing healthcare professionals with the
           tools they need to deliver high-quality patient care. Our electronic
           health record (EHR) software is designed to streamline workflows,
@@ -45,7 +45,7 @@ export default function Hero() {
           {" "}
           Our Story{" "}
         </div>
-        <div className="pb-10 para text-lg w-1/2 m-auto">
+        <div className="hero-content pb-10 para w-1/2 m-auto">
           EHR was founded with a mission to transform the healthcare industry
           through technology. Our team of experienced healthcare professionals
           and software developers saw an opportunity to create a better EHR
