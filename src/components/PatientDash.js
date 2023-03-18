@@ -5,6 +5,8 @@ import { Box } from "@mui/material";
 import Cardcomp from "./Cardcomp";
 import Doctorspage from "./Doctorspage";
 import PatientDetails from "./PatientDetails";
+import MedicalRecord from "./MedicalRecord";
+import Addmedicalrec from "./Addmedicalrec";
 import MedRecord from "./MedRecord";
 
 const PatientDash = () => {
@@ -35,7 +37,7 @@ const PatientDash = () => {
           <Tab label="Discover" />
           <Tab label="Profile" />
           <Tab label="Medical Record" />
-          <Tab label="Previous" />
+          <Tab label="Add Record" />
         </Tabs>
       </Box>
       <Box>{getTabs()}</Box>
