@@ -7,9 +7,10 @@ import Doctorspage from "./Doctorspage";
 import PatientDetails from "./PatientDetails";
 import MedicalRecord from "./MedicalRecord";
 import Addmedicalrec from "./Addmedicalrec";
+import MedRecord from "./MedRecord";
 
 const PatientDash = () => {
-  const [value, setValue] = React.useState(2);
+  const [value, setValue] = React.useState(1);
 
   const handleChange = (event, newValue) => {
     console.log(newValue);
@@ -22,9 +23,7 @@ const PatientDash = () => {
       case 1:
         return <PatientDetails />;
       case 2:
-        return <MedicalRecord />;
-      case 3:
-        return <Addmedicalrec />;
+        return <MedRecord />;
     }
   };
   return (
