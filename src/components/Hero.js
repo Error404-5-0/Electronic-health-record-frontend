@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <div>
 
-      <div className=" height justify-around my-5 mx-5 mr-5 ml-5 flex space-x-10 ">
+      <div id="home" className=" height justify-around my-5 mx-5 mr-5 ml-5 flex space-x-10 ">
         <div className=" flex1  items-center  w-200">
           <img id="bg" className="flexitem" src={Bg} alt="imag" />
         </div>
@@ -14,7 +14,7 @@ export default function Hero() {
           <h3 className="flexitem text-5xl  font-bold font-3xl">
             <span className=" color-gradient "> Electronic Health Record</span>
           </h3>
-          <div id="" className="hero-content flexitem">
+          <div  className="hero-content flexitem">
           Welcome to EHR the modern solution for managing your healthcare practice.
 
 Our EHR software provides everything you need to streamline your workflow, improve patient care, and grow your practice. With EHR, you can:
@@ -31,14 +31,14 @@ Electronically prescribe medications and manage prescriptions
         </div>
       </div>
 
-      <section className="pt-10 ">
+      <section className="pt-10" id = "about-us">
         <div className="text-5xl font-bold text-center pb-10 color-gradient"> About us </div>
         {/* <div className="para mt-20 text-lg w-1/2 m-auto">Lorem Ipsum1 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</div> */}
         <div className="text-center py-3 sub-topic-about text-3xl ">
           {" "}
           Introduction{" "}
         </div>
-        <div className="para hero-content w-1/2 m-auto pb-10">
+        <div className="para hero-content w-4/5 m-auto pb-10">
           At EHR, we're dedicated to providing healthcare professionals with the
           tools they need to deliver high-quality patient care. Our electronic
           health record (EHR) software is designed to streamline workflows,
@@ -48,7 +48,7 @@ Electronically prescribe medications and manage prescriptions
           {" "}
           Our Story{" "}
         </div>
-        <div className="hero-content pb-10 para w-1/2 m-auto">
+        <div className="hero-content pb-10 para w-4/5 m-auto">
           EHR was founded with a mission to transform the healthcare industry
           through technology. Our team of experienced healthcare professionals
           and software developers saw an opportunity to create a better EHR
