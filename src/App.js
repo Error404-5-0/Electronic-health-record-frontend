@@ -9,11 +9,13 @@ import PatientDash from "./components/PatientDash";
 import Viewcomp from "./components/Viewcomp";
 import PatientDetails from "./components/PatientDetails";
 import DoctorDash from "./components/DoctorDash";
+import Home from "./components/Home";
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/patient" element={<PatientDash />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<CreateAccount />} />
