@@ -7,6 +7,9 @@ import {Link} from 'react-router-dom'
 
 const CreateAccount = () => {
   const [user, setUser] = useState(0);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <main className=" font-poppins">
       <div className="grid grid-flow-row gap-4 sm:gap-0 sm:grid-cols-2 h-screen">
@@ -42,6 +45,7 @@ const CreateAccount = () => {
                   className=" border text-xs focus:outline-none w-full pl-9 py-4 rounded-md"
                   type="text"
                   placeholder="Enter your name"
+                  onChange={(e)=>setName(e.target.value)}
                 />
               </div>
             </div>
@@ -58,6 +62,7 @@ const CreateAccount = () => {
                   className=" border text-xs focus:outline-none w-full pl-9 py-4 rounded-md"
                   type="email"
                   placeholder="Enter your email"
+                  onChange={(e)=>setEmail(e.target.value)}
                 />
               </div>
             </div>
@@ -78,7 +83,7 @@ const CreateAccount = () => {
               </div>
             </div>
             <div className="flex gap-2">
-              <input type="checkbox" className="accent-[#2EADC5]" name="" id="" />
+              <input type="checkbox" className="accent-[#2EADC5]" name="" id="" onChange={(e)=>setPassword(e.target.value)} />
               <p className="text-xs font-semibold text-[#929298]">
                 I agree to the{" "}
                 <a href="#" className="text-[#2EADC5]">
