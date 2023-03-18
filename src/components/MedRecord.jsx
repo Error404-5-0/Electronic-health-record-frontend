@@ -50,9 +50,6 @@ const MedRecord = () => {
           </button>
         </div>
       </div>
-      
-      
-      
     </div>
   )
 }
