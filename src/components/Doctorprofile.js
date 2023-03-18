@@ -9,32 +9,30 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 
-const PatientDetails = () => {
+const Doctorprofile = () => {
   const [gender, setgender] = React.useState("");
-  const [blood, setBlood] = React.useState("");
+
   const [age, setage] = React.useState("");
-  const [height, setHeight] = React.useState("");
-  const [weight, setWeight] = React.useState("");
+  const [exp, setExp] = React.useState("");
+  const [degree, setDegree] = React.useState("");
 
   const handleChange = (event) => {
     setgender(event.target.value);
   };
-  const handleblood = (event) => {
-    setBlood(event.target.value);
-  };
+
   const handleage = (event) => {
     setage(event.target.value);
   };
   const handleheight = (event) => {
-    setHeight(event.target.value);
+    setExp(event.target.value);
   };
   const handleweight = (event) => {
-    setWeight(event.target.value);
+    setDegree(event.target.value);
   };
 
   return (
-    <Box sx={{ height: "100%", width: "100%" }} p={{ lg: 3, sm: 2 }}>
-      <Stack direction={"column"} gap={5} px={{ lg: 5, md: 3, sm: 1 }}>
+    <Box sx={{ height: "100%", width: "100%" }} p={3}>
+      <Stack direction={"column"} gap={5} px={{ lg: 5, md: 2, sm: 0 }}>
         <Box
           width="100%"
           textAlign={"center"}
@@ -42,7 +40,7 @@ const PatientDetails = () => {
           borderRadius={"10px"}
           sx={{ backgroundColor: "lightblue" }}
         >
-          Patient Details
+          Doctor Details
         </Box>
         <Patientcard />
         <Box
@@ -61,11 +59,6 @@ const PatientDetails = () => {
               id="outlined-required"
               label="Age"
               onChange={handleage}
-            />
-            <TextField
-              id="outlined-required"
-              label="Blood Group"
-              onChange={handleblood}
             />
             <FormControl sx={{ minWidth: 220 }}>
               <InputLabel id="demo-simple-select-helper-label">
@@ -87,12 +80,12 @@ const PatientDetails = () => {
           <Stack direction={"row"} gap={5}>
             <TextField
               id="outlined-required"
-              label="Height"
+              label="Experience"
               onChange={handleheight}
             />
             <TextField
               id="outlined-required"
-              label="Weight"
+              label="Degree"
               onChange={handleweight}
             />
           </Stack>
@@ -107,4 +100,4 @@ const PatientDetails = () => {
   );
 };
 
-export default PatientDetails;
+export default Doctorprofile;

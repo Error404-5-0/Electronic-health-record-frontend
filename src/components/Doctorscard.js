@@ -1,12 +1,12 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { Button, CardActionArea, Stack } from "@mui/material";
 import { Box } from "@mui/system";
-import { Button } from "@mui/material";
+
 export default function Cardcomp(props) {
   const handleclick = () => {};
   return (
@@ -17,8 +17,13 @@ export default function Cardcomp(props) {
       <CardActionArea>
         <CardContent>
           <Box display={"flex"}>
-            <Box p={1} display="flex" justifyContent={"center"} width="30%">
-              <Box borderRadius={"50%"} width="80px">
+            <Box
+              p={1}
+              display="flex"
+              justifyContent={"center"}
+              width={{ lg: "30%", md: "20%", sm: "10%" }}
+            >
+              <Box borderRadius={"50%"} width={"80px"}>
                 <PersonOutlinedIcon
                   p={1}
                   sx={{
@@ -31,23 +36,19 @@ export default function Cardcomp(props) {
                 />
               </Box>
             </Box>
-            <Box width="50%" p={2.3}>
+            <Box width={{ lg: "50%", md: "40%", sm: "20%" }} p={2.3}>
               <Typography gutterBottom variant="h5" component="div">
                 {props.name}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {props.exp}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {props.gender}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {props.qualification}
-              </Typography>
+              <Typography variant="body2">{props.email}</Typography>
+              <Stack direction={"row"} gap={3}>
+                <Typography variant="body2">{props.age}</Typography>
+                <Typography variant="body2">{props.gender}</Typography>
+              </Stack>
             </Box>
             <Box p={5}>
               <Button variant="contained" onClick={handleclick}>
-                Grant Permission
+                View
               </Button>
             </Box>
           </Box>

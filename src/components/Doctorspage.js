@@ -4,14 +4,18 @@ import Cardcomp from "./Cardcomp";
 
 const Doctorspage = () => {
   return (
-    <Stack direction={"column"} px={9} py={2} gap={2}>
+    <Stack direction={"column"} px={{ lg: 9, md: 4, sm: 2 }} py={2} gap={2}>
       <Cardcomp
         name="Nadeem Khan"
-        details="M.B.B.S. having 3 years of experience "
+        exp="4 years"
+        gender="Male"
+        qualification="M.B.B.S"
       />
       <Cardcomp
         name="Zaid Mujahid"
-        details="M.B.B.S. having 3 years of experience "
+        exp="4 years"
+        gender="Male"
+        qualification="M.B.B.S"
       />
     </Stack>
   );
