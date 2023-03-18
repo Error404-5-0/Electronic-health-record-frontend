@@ -12,7 +12,7 @@
   height: 500px;
 }
 .height{
-  height: 100vh;
+  height: 80vh;
 }
 .flex1{
   display: flex;
@@ -32,17 +32,31 @@
 }
 
 .flexitem{
-  margin:50px;
+  margin-bottom:30px;
   /* font-sizer; */
   /* font-size; */
 }
 
 .hero-content{
   font-size:larger;
+  text-align: justify;
 }
 
 .sub-topic-about {
   left: 376px;
+}
+
+.color-gradient{
+  background: -webkit-linear-gradient(right,#94c3fc,#013b84);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bgcolor-gradient{
+  background: -webkit-linear-gradient(right,#94c3fc,#013b84);
+  background: #013b84;
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
 }
 
 section {
