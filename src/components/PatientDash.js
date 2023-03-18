@@ -9,7 +9,7 @@ import MedicalRecord from "./MedicalRecord";
 import Addmedicalrec from "./Addmedicalrec";
 
 const PatientDash = () => {
-  const [value, setValue] = React.useState(2);
+  const [value, setValue] = React.useState(1);
 
   const handleChange = (event, newValue) => {
     console.log(newValue);
