@@ -5,6 +5,7 @@ import { Box } from "@mui/material";
 import Cardcomp from "./Cardcomp";
 import Doctorspage from "./Doctorspage";
 import PatientDetails from "./PatientDetails";
+import MedRecord from "./MedRecord";
 
 const PatientDash = () => {
   const [value, setValue] = React.useState(2);
@@ -19,6 +20,8 @@ const PatientDash = () => {
         return <Doctorspage />;
       case 1:
         return <PatientDetails />;
+      case 2:
+        return <MedRecord />;
     }
   };
   return (

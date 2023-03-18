@@ -7,7 +7,6 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/patient" element={<PatientDash />} />
           <Route path="/details" element={<PatientDetails />} />
         </Routes>
       </BrowserRouter>
