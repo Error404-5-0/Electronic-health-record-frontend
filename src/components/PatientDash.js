@@ -24,6 +24,8 @@ const PatientDash = () => {
         return <PatientDetails />;
       case 2:
         return <MedRecord />;
+      case 3:
+        return <Addmedicalrec />;
     }
   };
   return (
