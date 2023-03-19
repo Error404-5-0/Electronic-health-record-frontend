@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 import Report from "../assets/report.png";
 
 const Medreccard = (props) => {
