@@ -83,6 +83,8 @@ const PatientView = () => {
         ))}
       </Stack>
     );
+  return <></>;
+  
 };
 
 export default PatientView;
