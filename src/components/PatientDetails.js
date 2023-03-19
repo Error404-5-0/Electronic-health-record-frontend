@@ -79,6 +79,8 @@ const PatientDetails = ({
           email={email}
           profileImage={profileImage}
           {...details}
+          recall={recall}
+          setRecall={setRecall}
         />
         <Box
           width="100%"

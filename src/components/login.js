@@ -108,20 +108,6 @@ const Login = () => {
                 />
               </div>
             </div>
-            <div className="flex gap-2">
-              <input
-                type="checkbox"
-                className="accent-[#2EADC5]"
-                name=""
-                id=""
-              />
-              <p className="text-xs font-semibold text-[#929298]">
-                I agree to the{" "}
-                <a href="#" className="text-[#2EADC5]">
-                  Terms and Conditions
-                </a>
-              </p>
-            </div>
             <button className="bg-[#2EADC5] hover:bg-[#0C4770] ease-in-out text-xs py-4 rounded-md font-bold text-white mt-2">
               Submit
             </button>

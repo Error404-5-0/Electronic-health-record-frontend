@@ -8,7 +8,7 @@ import SendIcon from "@mui/icons-material/Send";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 import DoctorCard from "./DoctorCard";
 import httprequest from "../utils/req";
 
@@ -65,7 +65,13 @@ const Doctorprofile = ({
         >
           Doctor Details
         </Box>
-        <DoctorCard name={name} email={email} profileImage={profileImage} />
+        <DoctorCard
+          name={name}
+          email={email}
+          profileImage={profileImage}
+          recall={recall}
+          setRecall={setRecall}
+        />
         <Box
           width="100%"
           textAlign={"center"}
