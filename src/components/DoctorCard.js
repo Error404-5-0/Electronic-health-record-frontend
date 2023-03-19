@@ -5,7 +5,15 @@ import downloadimg from "../assets/download.jpg";
 import Typography from "@mui/material/Typography";
 import { Stack } from "@mui/system";
 
-const Patientcard = ({ name, email, profileImage,  }) => {
+const DoctorCard = ({
+  name,
+  email,
+  profileImage,
+  age,
+  experience,
+  degree,
+  gender,
+}) => {
   return (
     <div class="flex flex-row p-6 mx-4 my-2 shadow-slate-200 shadow-2xl rounded-2xl">
       <img
@@ -28,4 +36,4 @@ const Patientcard = ({ name, email, profileImage,  }) => {
   );
 };
 
-export default Patientcard;
+export default DoctorCard;
