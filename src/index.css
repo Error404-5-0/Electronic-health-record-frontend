@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 
 *{
   margin: 0;
@@ -12,7 +14,7 @@
   height: 500px;
 }
 .height{
-  height: 80vh;
+  height: 80%;
 }
 .flex1{
   display: flex;
@@ -50,6 +52,10 @@
   background: -webkit-linear-gradient(right,#94c3fc,#013b84);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.text-color-gradient{
+  color: #013b84;
 }
 
 .bgcolor-gradient{

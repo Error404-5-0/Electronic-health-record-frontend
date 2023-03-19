@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-sky-200 py-8">
+    <footer id = "footer" className="bg-sky-200 pt-8 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
           <div className="px-5 py-2">
@@ -27,6 +27,7 @@ const Footer = () => {
           </div>
         </nav>
       </div>
+          <p className="text-center text-gray-500 text-xs mt-8">&copy; 2023 Your Company Name. All Rights Reserved.</p>
     </footer>
   );
 };
