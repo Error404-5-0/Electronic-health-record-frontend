@@ -8,7 +8,18 @@ import profile from "../assets/profile.png";
 import { Button, Grid } from "@mui/material";
 import httprequest from "../utils/req";
 
-const Patientcard = ({ name, email, profileImage, recall, setRecall }) => {
+const Patientcard = ({
+  name,
+  email,
+  profileImage,
+  gender,
+  bloodGroup,
+  age,
+  height,
+  weight,
+  recall,
+  setRecall,
+}) => {
   const uploadProfilePic = (file) => {
     const formData = new FormData();
     formData.append("file", file);
@@ -41,7 +52,9 @@ const Patientcard = ({ name, email, profileImage, recall, setRecall }) => {
         >
           {profileImage === "" && <img src={profile} />}
 
-          {profileImage !== "" && <img src={profileImage} style={{objectFit: "cover"}} />}
+          {profileImage !== "" && (
+            <img src={profileImage} style={{ objectFit: "cover" }} />
+          )}
           <input
             hidden
             accept="image/*"
@@ -60,6 +73,22 @@ const Patientcard = ({ name, email, profileImage, recall, setRecall }) => {
           </Typography>
           <Typography variant="h5" component="div">
             Email : {email}
+          </Typography>
+
+          <Typography variant="h5" component="div">
+            Gender : {gender}
+          </Typography>
+          <Typography variant="h5" component="div">
+            Blood Group : {bloodGroup}
+          </Typography>
+          <Typography variant="h5" component="div">
+            Age : {age}
+          </Typography>
+          <Typography variant="h5" component="div">
+            Height : {height}
+          </Typography>
+          <Typography variant="h5" component="div">
+            Weight : {weight}
           </Typography>
         </Stack>
       </Box>
