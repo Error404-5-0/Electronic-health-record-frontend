@@ -49,7 +49,10 @@ export default function Cardcomp(props) {
               </Stack>
             </Box>
             <Box p={5}>
-            <Button variant="contained" onClick= {() => navigate(`view/${props._id}`)}>
+              <Button
+                variant="contained"
+                onClick={() => navigate(`view/${props._id}`)}
+              >
                 View
               </Button>
             </Box>

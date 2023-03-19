@@ -23,12 +23,24 @@ const DoctorCard = ({
       />
 
       <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <Stack direction={"column"} gap={2} p={5}>
+        <Stack direction={"column"} gap={2}>
           <Typography variant="h5" component="div">
             Name : {name}
           </Typography>
           <Typography variant="h5" component="div">
             Email : {email}
+          </Typography>
+          <Typography variant="h5" component="div">
+            Age : {age}
+          </Typography>
+          <Typography variant="h5" component="div">
+            Experience : {experience}
+          </Typography>
+          <Typography variant="h5" component="div">
+            Degree : {degree}
+          </Typography>
+          <Typography variant="h5" component="div">
+            Gender : {gender}
           </Typography>
         </Stack>
       </Box>

@@ -8,21 +8,22 @@ import SendIcon from "@mui/icons-material/Send";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 import DoctorCard from "./DoctorCard";
 import httprequest from "../utils/req";
 
-const Doctorprofile = ({
-  name,
-  email,
-  profileImage,
-  age,
-  gender,
-  experience,
-  degree,
-  recall,
-  setRecall,
-}) => {
+const Doctorprofile = (props) => {
+  const {
+    name,
+    email,
+    profileImage,
+    age,
+    gender,
+    experience,
+    degree,
+    recall,
+    setRecall,
+  } = props;
   const [details, setDetails] = useState({ age, gender, experience, degree });
 
   const updateProfile = () => {
@@ -65,7 +66,7 @@ const Doctorprofile = ({
         >
           Doctor Details
         </Box>
-        <DoctorCard name={name} email={email} profileImage={profileImage} />
+        <DoctorCard {...props} />
         <Box
           width="100%"
           textAlign={"center"}
