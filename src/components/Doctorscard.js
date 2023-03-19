@@ -6,8 +6,10 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, Stack } from "@mui/material";
 import { Box } from "@mui/system";
+import { useNavigate } from "react-router";
 
 export default function Cardcomp(props) {
+  const navigate = useNavigate();
   const handleclick = () => {};
   return (
     <Card
@@ -47,7 +49,7 @@ export default function Cardcomp(props) {
               </Stack>
             </Box>
             <Box p={5}>
-              <Button variant="contained" onClick={handleclick}>
+            <Button variant="contained" onClick= {() => navigate(`view/${props._id}`)}>
                 View
               </Button>
             </Box>

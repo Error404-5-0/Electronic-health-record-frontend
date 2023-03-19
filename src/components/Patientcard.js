@@ -7,24 +7,24 @@ import { Stack } from "@mui/system";
 
 const Patientcard = () => {
   return (
-    <Card sx={{ display: "flex", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.4)" }}>
+    <div class="flex flex-row p-6 mx-4 my-2 shadow-slate-200 shadow-2xl rounded-2xl">
       <img
         src={downloadimg}
         alt="image"
-        style={{ width: "40%", height: "200px", objectFit: "contain" }}
+        style={{ width: "40%", height: "170px", objectFit: "contain" }}
       />
 
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Stack direction={"column"} gap={2} p={5}>
-          <Typography component="div" variant="h5">
+          <Typography variant="h5" component="div">
             Name : Dawood Khatri
           </Typography>
-          <Typography variant="subtitle1" component="div">
+          <Typography variant="h5" component="div">
             Email : Rojidhusd@gmail.com
           </Typography>
         </Stack>
       </Box>
-    </Card>
+    </div>
   );
 };
 

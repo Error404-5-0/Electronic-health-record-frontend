@@ -1,9 +1,10 @@
 import React from "react";
 import { Button } from "@mui/material";
 import Report from "../assets/report.png";
+
 const Medreccard = (props) => {
   return (
-    <div class="flex justify-between p-8 mx-6 my-4 shadow-slate-50 hover:shadow-xl rounded-2xl">
+    <div class="flex justify-between p-8 mx-6 my-4 shadow-slate-200 shadow-2xl rounded-2xl">
       <div class="flex">
         <div class="mr-8">
           <img src={Report} alt="Doc Image" class="pt-6" />

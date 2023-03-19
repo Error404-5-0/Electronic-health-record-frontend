@@ -11,6 +11,7 @@ import PatientDetails from "./components/PatientDetails";
 import DoctorDash from "./components/DoctorDash";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import PatientView from "./components/PatientView";
 function App() {
   return (
     <div>
@@ -46,7 +47,7 @@ function App() {
               </>
             }
           />
-          <Route path="/doctor/view/:id" element={<Viewcomp />} />
+          <Route path="/doctor/view/:id" element={<PatientView />} />
         </Routes>
       </BrowserRouter>
     </div>

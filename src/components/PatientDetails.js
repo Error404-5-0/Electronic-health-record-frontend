@@ -4,7 +4,7 @@ import Patientcard from "./Patientcard";
 import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import SendIcon from "@mui/icons-material/Send";
+import AddIcon from '@mui/icons-material/Add';
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
@@ -96,9 +96,9 @@ const PatientDetails = () => {
               onChange={handleweight}
             />
           </Stack>
-          <Box alignItems={"center"}>
-            <Button variant="contained" endIcon={<SendIcon />}>
-              Upload
+          <Box alignItems={"center"} justifyContent={"center"} display={"flex"}>
+            <Button variant="contained" endIcon={<AddIcon />}>
+              Add
             </Button>
           </Box>
         </Stack>
