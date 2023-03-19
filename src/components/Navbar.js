@@ -13,8 +13,8 @@ export default function Navbar() {
               <span>
                 {/* <GiMedicines className="inline text-3xl md:text-5xl md:mx-2 text-sky-600 mr-1" /> */}
               </span>
-              <h1 className="font-bold pt-1.5 text-2xl cursor-pointer bg-clip-text text-gray-900 inline">
-                VCare
+              <h1 className="font-bold font-cursive pt-1.5 text-3xl cursor-pointer bg-clip-text text-gray-900 inline">
+                <span>V</span>Care
               </h1>
             </div>
             {/* </Link>  */}

@@ -9,6 +9,7 @@ const Patientrecords = () => {
         email="rohit@gmail.com"
         age="23"
         gender="male"
+        _id="673t4236g3"
       />
     </Stack>
   );
