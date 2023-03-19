@@ -5,7 +5,16 @@ import downloadimg from "../assets/download.jpg";
 import Typography from "@mui/material/Typography";
 import { Stack } from "@mui/system";
 
-const Patientcard = ({ name, email, profileImage, gender, bloodGroup, age, height, weight }) => {
+const Patientcard = ({
+  name,
+  email,
+  profileImage,
+  gender,
+  bloodGroup,
+  age,
+  height,
+  weight,
+}) => {
   return (
     <div class="flex flex-row p-6 mx-4 my-2 shadow-slate-200 shadow-2xl rounded-2xl">
       <img
@@ -20,8 +29,21 @@ const Patientcard = ({ name, email, profileImage, gender, bloodGroup, age, heigh
             Name : {name}
           </Typography>
           <Typography variant="h5" component="div">
-            Email : {email}
+            Emai;;; : {email}
           </Typography>
+
+          {/* <Typography variant="h5" component="div">
+            Gender : {gender}
+          </Typography>
+          <Typography variant="h5" component="div">
+            Blood Group : {bloodGroup}
+          </Typography>
+          <Typography variant="h5" component="div">
+            Age : {age}
+          </Typography>
+          <Typography variant="h5" component="div">
+            Age : {height} */}
+          {/* </Typography> */}
         </Stack>
       </Box>
     </div>
