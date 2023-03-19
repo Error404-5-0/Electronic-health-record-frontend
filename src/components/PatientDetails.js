@@ -1,36 +1,66 @@
 import { Box, Stack } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import Patientcard from "./Patientcard";
 import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
+import httprequest from "../utils/req";
 
-const PatientDetails = () => {
-  const [gender, setgender] = React.useState("");
-  const [blood, setBlood] = React.useState("");
-  const [age, setage] = React.useState("");
-  const [height, setHeight] = React.useState("");
-  const [weight, setWeight] = React.useState("");
+const PatientDetails = ({
+  name,
+  email,
+  profileImage,
+  gender,
+  bloodGroup,
+  age,
+  height,
+  weight,
+  recall,
+  setRecall,
+}) => {
+  const [details, setDetails] = useState({
+    gender,
+    bloodGroup,
+    age,
+    height,
+    weight,
+  });
 
-  const handleChange = (event) => {
-    setgender(event.target.value);
+  const updateDetails = () => {
+    httprequest(`/api/patient/editDetails`, "POST", details).then((res) => {
+      if (res.success) {
+        setRecall(!recall);
+      } else {
+        alert(res.messgae);
+      }
+    });
   };
-  const handleblood = (event) => {
-    setBlood(event.target.value);
-  };
-  const handleage = (event) => {
-    setage(event.target.value);
-  };
-  const handleheight = (event) => {
-    setHeight(event.target.value);
-  };
-  const handleweight = (event) => {
-    setWeight(event.target.value);
-  };
+
+  // const [gender, setgender] = React.useState("");
+  // const [blood, setBlood] = React.useState("");
+  // const [age, setage] = React.useState("");
+  // const [height, setHeight] = React.useState("");
+  // const [weight, setWeight] = React.useState("");
+
+  // const handleChange = (event) => {
+  //   setgender(event.target.value);
+  // };
+  // const handleblood = (event) => {
+  //   setBlood(event.target.value);
+  // };
+  // const handleage = (event) => {
+  //   setage(event.target.value);
+  // };
+  // const handleheight = (event) => {
+  //   setHeight(event.target.value);
+  // };
+  // const handleweight = (event) => {
+  //   setWeight(event.target.value);
+  // };
 
   return (
     <Box sx={{ height: "100%", width: "100%" }} p={{ lg: 3, sm: 2 }}>
@@ -44,7 +74,12 @@ const PatientDetails = () => {
         >
           Patient Details
         </Box>
-        <Patientcard />
+        <Patientcard
+          name={name}
+          email={email}
+          profileImage={profileImage}
+          {...details}
+        />
         <Box
           width="100%"
           textAlign={"center"}
@@ -60,12 +95,18 @@ const PatientDetails = () => {
             <TextField
               id="outlined-required"
               label="Age"
-              onChange={handleage}
+              value={age}
+              onChange={(e) => {
+                setDetails({ ...details, age: e.target.value });
+              }}
             />
             <TextField
               id="outlined-required"
               label="Blood Group"
-              onChange={handleblood}
+              value={bloodGroup}
+              onChange={(e) => {
+                setDetails({ ...details, bloodGroup: e.target.value });
+              }}
             />
             <FormControl sx={{ minWidth: 220 }}>
               <InputLabel id="demo-simple-select-helper-label">
@@ -76,7 +117,9 @@ const PatientDetails = () => {
                 id="demo-simple-select-helper"
                 value={gender}
                 label="Gender"
-                onChange={handleChange}
+                onChange={(e) => {
+                  setDetails({ ...details, gender: e.target.value });
+                }}
               >
                 <MenuItem value="Male">Male</MenuItem>
                 <MenuItem value="Female">Female</MenuItem>
@@ -88,16 +131,26 @@ const PatientDetails = () => {
             <TextField
               id="outlined-required"
               label="Height"
-              onChange={handleheight}
+              value={height}
+              onChange={(e) => {
+                setDetails({ ...details, height: e.target.value });
+              }}
             />
             <TextField
               id="outlined-required"
               label="Weight"
-              onChange={handleweight}
+              value={weight}
+              onChange={(e) => {
+                setDetails({ ...details, weight: e.target.value });
+              }}
             />
           </Stack>
           <Box alignItems={"center"} justifyContent={"center"} display={"flex"}>
-            <Button variant="contained" endIcon={<AddIcon />}>
+            <Button
+              variant="contained"
+              endIcon={<AddIcon />}
+              onClick={updateDetails}
+            >
               Add
             </Button>
           </Box>

@@ -1,21 +1,13 @@
-const getToken = () => {
-  if (localStorage.getItem("patientToken")) {
-    return `patientToken=${localStorage.getItem("patientToken")}`;
-  } else if (localStorage.getItem("doctorToken")) {
-    return `doctorToken=${localStorage.getItem("doctorToken")}`;
-  } else {
-    return "";
-  }
-};
-const httprequest = async (url, method, params = {}) => {
+const httprequest = async (url, method, params = {}, isMultipart) => {
   let options = {
     method,
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: getToken(),
-    },
-    crediantials: "include",
   };
+
+  if (!isMultipart) {
+    options.headers = {
+      "Content-Type": "application/json",
+    };
+  }
   switch (method) {
     case "GET":
       url += `?${new URLSearchParams(params).toString()}`;

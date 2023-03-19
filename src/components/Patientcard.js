@@ -5,11 +5,11 @@ import downloadimg from "../assets/download.jpg";
 import Typography from "@mui/material/Typography";
 import { Stack } from "@mui/system";
 
-const Patientcard = () => {
+const Patientcard = ({ name, email, profileImage, gender, bloodGroup, age, height, weight }) => {
   return (
     <div class="flex flex-row p-6 mx-4 my-2 shadow-slate-200 shadow-2xl rounded-2xl">
       <img
-        src={downloadimg}
+        src={profileImage}
         alt="image"
         style={{ width: "40%", height: "170px", objectFit: "contain" }}
       />
@@ -17,10 +17,10 @@ const Patientcard = () => {
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Stack direction={"column"} gap={2} p={5}>
           <Typography variant="h5" component="div">
-            Name : Dawood Khatri
+            Name : {name}
           </Typography>
           <Typography variant="h5" component="div">
-            Email : Rojidhusd@gmail.com
+            Email : {email}
           </Typography>
         </Stack>
       </Box>
