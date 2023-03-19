@@ -1,10 +1,11 @@
 import React from "react";
 import { Button } from "@mui/material";
 import Report from "../assets/report.png";
-import { Stack } from "@mui/material";
+import { Stack } from "@mui/system";
+
 const Medreccard = (props) => {
   return (
-    <div class="flex justify-between p-8 mx-20 my-4  shadow-xl rounded-2xl">
+    <div class="flex justify-between p-8 mx-6 my-4 shadow-slate-200 shadow-2xl rounded-2xl">
       <div class="flex">
         <div class="mr-8">
           <img src={Report} alt="Doc Image" class="pt-6" />
