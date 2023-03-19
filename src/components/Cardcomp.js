@@ -39,7 +39,7 @@ export default function Cardcomp(props) {
                 <PersonOutlinedIcon
                   p={1}
                   sx={{
-                    color: "green",
+                    color: "lightblue",
                     height: "80%",
                     width: "100%",
                     justifyContent: "center",

@@ -1,7 +1,33 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import httprequest from "../utils/req";
 
 export default function Navbar() {
+  const [auth, setAuth] = useState();
+  const navigate = useNavigate();
+
+  const logout = () => {
+    httprequest(`/api/${auth}/logout`, "POST").then((res) => {
+      if (res.success) {
+        navigate("/login");
+      } else {
+        alert(res.message);
+      }
+    });
+  };
+
+  useEffect(() => {
+    httprequest("/api/patient/getDetails", "GET").then((res) => {
+      if (res.success) {
+        setAuth("patient");
+      }
+    });
+    httprequest("/api/doctor/getDetails", "GET").then((res) => {
+      if (res.success) {
+        setAuth("doctor");
+      }
+    });
+  });
   return (
     <div>
       {/* <nav className="my-5 mx-5 shadow-md w-5/6 fixed top-0 left-0 bg-sky-50 py-3 md:pt-3 md:py-3 px-2 md:px-7 flex items-center justify-between z-20"> */}
@@ -20,7 +46,7 @@ export default function Navbar() {
             {/* </Link>  */}
           </div>
 
-          <ul className="md:flex space-x-16 font-semibold hidden md:text-lg">
+          {/* <ul className="md:flex space-x-16 font-semibold hidden md:text-lg">
             <li className="pt-1.5">
               <a href="#home">Home</a>
             </li>
@@ -30,24 +56,41 @@ export default function Navbar() {
             <li className="pt-1.5">
               <a href="#footer">Contact</a>
             </li>
-          </ul>
+          </ul> */}
 
           {/* {!user && ( */}
-          <div>
-            <Link to="/signup">
-              <button className="bgcolor-gradient py-1 md:px-4 font-semibold  md:text-lg border border-sky-600 rounded-lg text-white bg-sky-500 md:ml-2 hover:shadow-md md:mr-2 px-1 ml-1 mr-2">
-                Sign up
+          {!auth && (
+            <div>
+              <Link to="/signup">
+                <button className="bgcolor-gradient py-1 md:px-4 font-semibold  md:text-lg border border-sky-600 rounded-lg text-white bg-sky-500 md:ml-2 hover:shadow-md md:mr-2 px-1 ml-1 mr-2">
+                  Sign up
+                </button>
+              </Link>
+              <Link
+                className="py-1 md:px-4  font-semibold md:text-lg bg-sky-50 border border-sky-600 rounded-lg text-color-gradient md:mr-2 hover:shadow-md px-1 sm:ml-4"
+                to="/login"
+              >
+                {/* <button > */}
+                Log in
+                {/* </button> */}
+              </Link>
+            </div>
+          )}
+          {auth && (
+            <div>
+              <Link to={`/${auth}`}>
+                <button className="bgcolor-gradient py-1 md:px-4 font-semibold  md:text-lg border border-sky-600 rounded-lg text-white bg-sky-500 md:ml-2 hover:shadow-md md:mr-2 px-1 ml-1 mr-2">
+                  Dashboard
+                </button>
+              </Link>
+              <button
+                className="py-1 md:px-4  font-semibold md:text-lg bg-sky-50 border border-sky-600 rounded-lg text-color-gradient md:mr-2 hover:shadow-md px-1 sm:ml-4"
+                onClick={logout}
+              >
+                Log out
               </button>
-            </Link>
-            <Link
-              className="py-1 md:px-4  font-semibold md:text-lg bg-sky-50 border border-sky-600 rounded-lg text-color-gradient md:mr-2 hover:shadow-md px-1 sm:ml-4"
-              to="/login"
-            >
-              {/* <button > */}
-              Log in
-              {/* </button> */}
-            </Link>
-          </div>
+            </div>
+          )}
           {/* )} */}
         </div>
       </nav>

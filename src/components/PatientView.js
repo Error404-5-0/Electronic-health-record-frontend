@@ -11,6 +11,18 @@ const PatientView = () => {
   const [details, setDetails] = useState();
   const navigate = useNavigate();
 
+  const download = (id) => {
+    httprequest("/api/doctor/previewMedicalRecord", "GET", { id }).then(
+      (res) => {
+        if (res.success) {
+          window.open(res.data, {target: "_blank"});
+        } else {
+          alert(res.message);
+        }
+      }
+    );
+  };
+
   useEffect(() => {
     httprequest("/api/doctor/getPatientDetails", "GET", { patientId: id }).then(
       (res) => {
@@ -45,7 +57,7 @@ const PatientView = () => {
         >
           Medical Records
         </Box>
-        {details.medicalRecords.map(({ title, date, symptoms }, index) => (
+        {details.medicalRecords.map(({ _id, title, date, symptoms }, index) => (
           <div class="flex justify-between p-8 mx-6 my-4 shadow-slate-200 shadow-2xl rounded-2xl">
             <div class="flex">
               <div class="mr-8">
@@ -58,8 +70,13 @@ const PatientView = () => {
               </div>
             </div>
             <Stack direction="row" py={5} gap={2}>
-              <Button variant="contained" onClick={() => {}}>
-                View
+              <Button
+                variant="contained"
+                onClick={() => {
+                  download(_id);
+                }}
+              >
+                Download
               </Button>
             </Stack>
           </div>
