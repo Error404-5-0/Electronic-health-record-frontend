@@ -30,7 +30,6 @@ const Login = () => {
         if (res.success) {
           navigate(`/${user ? "doctor" : "patient"}`);
         } else {
-          alert(res.message);
         }
       }
     );

@@ -3,11 +3,6 @@ const httprequest = async (url, method, params = {}, isMultipart) => {
     method,
   };
 
-  if (!isMultipart) {
-    options.headers = {
-      "Content-Type": "application/json",
-    };
-  }
   switch (method) {
     case "GET":
       url += `?${new URLSearchParams(params).toString()}`;
@@ -15,6 +10,16 @@ const httprequest = async (url, method, params = {}, isMultipart) => {
     default:
       options.body = JSON.stringify(params);
       break;
+  }
+
+  if (!isMultipart) {
+    options.headers = {
+      "Content-Type": "application/json",
+    };
+  }
+
+  if (isMultipart) {
+    options.body = params;
   }
   return await (await fetch(url, options)).json();
 };
