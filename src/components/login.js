@@ -13,14 +13,16 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const login = async () => {
     httprequest(
-      `${process.env.REACT_APP_API}/api/${user ? "doctor" : "patient"}/login`,
+      `/api/${user ? "doctor" : "patient"}/login`,
       "POST",
       { email, password }
     ).then((res) => {
+
       if (res.success) {
+        console.log(res.data)
         // Window.localStorage.setItem(res.data.key, res.data.token);
-        localStorage.setItem(res.data.key, res.data.token);
-        navigate(`/${user ? "doctor" : "patient"}`);
+        // localStorage.setItem(res.data.key, res.data.token);
+        // navigate(`/${user ? "doctor" : "patient"}`);
       } else {
         alert(res.message);
       }
