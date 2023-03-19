@@ -29,10 +29,10 @@ const Patientcard = ({
             Name : {name}
           </Typography>
           <Typography variant="h5" component="div">
-            Emai;;; : {email}
+            Email : {email}
           </Typography>
 
-          {/* <Typography variant="h5" component="div">
+          <Typography variant="h5" component="div">
             Gender : {gender}
           </Typography>
           <Typography variant="h5" component="div">
@@ -42,8 +42,8 @@ const Patientcard = ({
             Age : {age}
           </Typography>
           <Typography variant="h5" component="div">
-            Age : {height} */}
-          {/* </Typography> */}
+            Age : {height}
+          </Typography>
         </Stack>
       </Box>
     </div>
