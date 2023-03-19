@@ -13,21 +13,21 @@ export default function Navbar() {
               <span>
                 {/* <GiMedicines className="inline text-3xl md:text-5xl md:mx-2 text-sky-600 mr-1" /> */}
               </span>
-              <h1 className="font-bold text-2xl cursor-pointer bg-clip-text text-gray-900 inline">
-                EHR
+              <h1 className="font-bold pt-1.5 text-2xl cursor-pointer bg-clip-text text-gray-900 inline">
+                VCare
               </h1>
             </div>
             {/* </Link>  */}
           </div>
 
-          <ul className="flex space-x-16 font-lg md:text-lg">
-            <li>
+          <ul className="md:flex space-x-16 font-semibold hidden md:text-lg">
+            <li className="pt-1.5">
               <a href="#home">Home</a>
             </li>
-            <li>
+            <li className="pt-1.5">
               <a href="#about-us">About Us</a>
             </li>
-            <li>
+            <li className="pt-1.5">
               <a href="#footer">Contact</a>
             </li>
           </ul>
@@ -35,12 +35,12 @@ export default function Navbar() {
           {/* {!user && ( */}
           <div>
             <Link to="/signup">
-              <button className="bgcolor-gradient py-1 md:px-2 font-medium md:text-lg border-2 border-sky-600 rounded-lg text-white bg-sky-500 md:ml-2 hover:shadow-md md:mr-2 px-1 ml-1 mr-2">
+              <button className="bgcolor-gradient py-1 md:px-2 font-semibold font-medium md:text-lg border-2 border-sky-600 rounded-lg text-white bg-sky-500 md:ml-2 hover:shadow-md md:mr-2 px-1 ml-1 mr-2">
                 Sign up
               </button>
             </Link>
             <Link
-              className="py-1 md:px-2 font-medium md:text-lg bg-sky-50 border-2 border-sky-600 rounded-lg text-sky-500 md:mr-2 hover:shadow-md px-1 sm:ml-4"
+              className="py-1 md:px-2 font-medium font-semibold md:text-lg bg-sky-50 border-2 border-sky-600 rounded-lg text-color-gradient md:mr-2 hover:shadow-md px-1 sm:ml-4"
               to="/login"
             >
               {/* <button > */}

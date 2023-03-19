@@ -54,6 +54,10 @@
   -webkit-text-fill-color: transparent;
 }
 
+.text-color-gradient{
+  color: #013b84;
+}
+
 .bgcolor-gradient{
   background: -webkit-linear-gradient(right,#94c3fc,#013b84);
   background: #013b84;
