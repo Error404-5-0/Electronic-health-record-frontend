@@ -4,14 +4,31 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { CardActionArea, Stack } from "@mui/material";
 import { Box } from "@mui/system";
 import { Button } from "@mui/material";
+import httprequest from "../utils/req";
 export default function Cardcomp(props) {
-  const handleclick = () => {};
+  const updatePermission = () => {
+    httprequest(
+      `${
+        props.patients.includes(props.patientId)
+          ? "/api/patient/revokeDoctorAccess"
+          : "/api/patient/authorizeDoctor"
+      }`,
+      "POST",
+      { doctorId: props._id }
+    ).then((res) => {
+      if (res.success) {
+        props.setRecall(!props.recall);
+      } else {
+        alert(res.message);
+      }
+    });
+  };
   return (
     <Card
-      sx={{ boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.4)" }}
+      sx={{ boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)", borderRadius: "23px" }}
       onClick={props.onClick}
     >
       <CardActionArea>
@@ -22,7 +39,7 @@ export default function Cardcomp(props) {
                 <PersonOutlinedIcon
                   p={1}
                   sx={{
-                    color: "green",
+                    color: "lightblue",
                     height: "80%",
                     width: "100%",
                     justifyContent: "center",
@@ -36,18 +53,26 @@ export default function Cardcomp(props) {
                 {props.name}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {props.exp}
+                {props.email}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {props.gender}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {props.qualification}
-              </Typography>
+              <Stack direction="row" gap={3}>
+                <Typography variant="body2" color="text.secondary">
+                  {props.gender}
+                </Typography>
+
+                <Typography variant="body2" color="text.secondary">
+                  {props.degree}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {props.experience} Years
+                </Typography>
+              </Stack>
             </Box>
             <Box p={5}>
-              <Button variant="contained" onClick={handleclick}>
-                Grant Permission
+              <Button variant="contained" onClick={updatePermission}>
+                {props.patients.includes(props.patientId)
+                  ? "Revoke Permission"
+                  : "Grant Permission"}
               </Button>
             </Box>
           </Box>

@@ -5,16 +5,17 @@ import { Box } from "@mui/material";
 import Cardcomp from "./Cardcomp";
 import Doctorspage from "./Doctorspage";
 import PatientDetails from "./PatientDetails";
-import MedicalRecord from "./MedicalRecord";
 import Addmedicalrec from "./Addmedicalrec";
 import MedRecord from "./MedRecord";
 import httprequest from "../utils/req";
+import { useNavigate } from "react-router-dom";
 
 const PatientDash = () => {
   const [value, setValue] = React.useState(1);
   const [details, setDetals] = useState();
 
   const [recall, setRecall] = useState(false);
+  const navigate = useNavigate()
 
   const handleChange = (event, newValue) => {
     console.log(newValue);
@@ -39,7 +40,7 @@ const PatientDash = () => {
       if (res.success) {
         setDetals(res.data);
       } else {
-        alert(res.message);
+        navigate("/login")
       }
     });
   }, [recall]);

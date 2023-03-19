@@ -1,12 +1,8 @@
 import voiceImage from "./images/voice5.jpg";
 import CreateAccount from "./components/createAccount";
-import { AppContext } from "./context";
-import { useContext } from "react";
 import Login from "./components/login";
-import Authentication from "./components/auth";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PatientDash from "./components/PatientDash";
-import Viewcomp from "./components/Viewcomp";
 import PatientDetails from "./components/PatientDetails";
 import DoctorDash from "./components/DoctorDash";
 import Home from "./components/Home";
@@ -46,7 +42,15 @@ function App() {
               </>
             }
           />
-          <Route path="/doctor/view/:id" element={<PatientView />} />
+          <Route
+            path="/doctor/view/:id"
+            element={
+              <>
+                <Navbar />
+                <PatientView />
+              </>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>

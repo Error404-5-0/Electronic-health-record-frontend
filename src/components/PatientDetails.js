@@ -95,7 +95,7 @@ const PatientDetails = ({
             <TextField
               id="outlined-required"
               label="Age"
-              value={age}
+              value={details.age}
               onChange={(e) => {
                 setDetails({ ...details, age: e.target.value });
               }}
@@ -103,7 +103,7 @@ const PatientDetails = ({
             <TextField
               id="outlined-required"
               label="Blood Group"
-              value={bloodGroup}
+              value={details.bloodGroup}
               onChange={(e) => {
                 setDetails({ ...details, bloodGroup: e.target.value });
               }}
@@ -115,7 +115,7 @@ const PatientDetails = ({
               <Select
                 labelId="demo-simple-select-helper-label"
                 id="demo-simple-select-helper"
-                value={gender}
+                value={details.gender}
                 label="Gender"
                 onChange={(e) => {
                   setDetails({ ...details, gender: e.target.value });
@@ -131,7 +131,7 @@ const PatientDetails = ({
             <TextField
               id="outlined-required"
               label="Height"
-              value={height}
+              value={details.height}
               onChange={(e) => {
                 setDetails({ ...details, height: e.target.value });
               }}
