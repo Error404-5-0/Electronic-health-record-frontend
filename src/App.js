@@ -46,7 +46,15 @@ function App() {
               </>
             }
           />
-          <Route path="/doctor/view/:id" element={<PatientView />} />
+          <Route
+            path="/doctor/view/:id"
+            element={
+              <>
+                <Navbar />
+                <PatientView />
+              </>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>

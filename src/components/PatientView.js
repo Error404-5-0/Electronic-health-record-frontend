@@ -1,14 +1,31 @@
-import React, { useState } from 'react'
-import { Box, Stack, } from "@mui/system";
-import Patientcard from './Patientcard';
-import Report from '../assets/report.png'
+import React, { useEffect, useState } from "react";
+import { Box, Stack } from "@mui/system";
+import Patientcard from "./Patientcard";
+import Report from "../assets/report.png";
 import { Button } from "@mui/material";
+import { useNavigate, useParams } from "react-router-dom";
+import httprequest from "../utils/req";
 
 const PatientView = () => {
-    const [title, setTitle] = useState("X-Ray")
-    const [date, setDate] = useState("12/34/2424")
-  return (
-    <Stack direction={"column"} gap={5} px={{ lg: 5, md: 3, sm: 1 }}>
+  const { id } = useParams();
+  const [details, setDetails] = useState();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    httprequest("/api/doctor/getPatientDetails", "GET", { patientId: id }).then(
+      (res) => {
+        if (res.success) {
+          setDetails(res.data);
+        } else {
+          navigate("/doctor");
+        }
+      }
+    );
+  }, []);
+
+  if (details)
+    return (
+      <Stack direction={"column"} gap={5} px={{ lg: 5, md: 3, sm: 1 }}>
         <Box
           className="bg-sky-200"
           width="100%"
@@ -18,7 +35,7 @@ const PatientView = () => {
         >
           Patient Details
         </Box>
-        <Patientcard />
+        <Patientcard {...details} />
         <Box
           width="100%"
           textAlign={"center"}
@@ -26,24 +43,30 @@ const PatientView = () => {
           borderRadius={"10px"}
           className="bg-sky-200"
         >
-          Add More Details
+          Medical Records
         </Box>
-        <div class="flex justify-between p-8 mx-6 my-4 shadow-slate-200 shadow-2xl rounded-2xl">
-      <div class="flex">
-        <div class="mr-8">
-          <img src={Report} alt="Doc Image" class="pt-6" />
-        </div>
-        <div flex>
-          <p class="text-2xl font-bold p-1">{title}</p>
-          <p class="text-xl p-1">{date}</p>
-        </div>
-      </div>
-      <div className="py-10">
-        <Button variant="contained">Delete</Button>
-      </div>
-    </div>
-    </Stack>
-  )
+        {details.medicalRecords.map(({ title, date, symptoms }, index) => (
+          <div class="flex justify-between p-8 mx-6 my-4 shadow-slate-200 shadow-2xl rounded-2xl">
+            <div class="flex">
+              <div class="mr-8">
+                <img src={Report} alt="Doc Image" class="pt-6" />
+              </div>
+              <div flex>
+                <p class="text-2xl font-bold p-1">{title}</p>
+                <p class="text-xl p-1">{new Date(date).toDateString()}</p>
+                <p class="text-xl p-1">{symptoms}</p>
+              </div>
+            </div>
+            <Stack direction="row" py={5} gap={2}>
+              <Button variant="contained" onClick={() => {}}>
+                View
+              </Button>
+            </Stack>
+          </div>
+        ))}
+      </Stack>
+    );
+  return <></>;
 };
 
-export default PatientView
+export default PatientView;

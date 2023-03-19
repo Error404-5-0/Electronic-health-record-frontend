@@ -5,12 +5,15 @@ import { Box } from "@mui/material";
 import Doctorprofile from "./Doctorprofile";
 import Patientrecords from "./Patientrecords";
 import httprequest from "../utils/req";
+import { useNavigate } from "react-router-dom";
 
 const DoctorDash = () => {
   const [value, setValue] = React.useState(0);
   const [details, setDetails] = useState();
 
   const [recall, setRecall] = useState(false);
+
+  const navigate = useNavigate()
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -32,10 +35,11 @@ const DoctorDash = () => {
       if (res.success) {
         setDetails(res.data);
       } else {
-        alert(res.message);
+        navigate("/login");
       }
     });
-  });
+  }, [recall]);
+
   if (details)
     return (
       <>
