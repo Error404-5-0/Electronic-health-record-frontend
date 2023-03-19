@@ -1,14 +1,48 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BiUser } from "react-icons/bi";
 import { MdOutlineMailOutline, MdLockOutline } from "react-icons/md";
 import { AppContext } from "../context";
 import voiceImage from "../images/doctor.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import httprequest from "../utils/req";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState(0);
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const login = async () => {
+    httprequest(
+      `${process.env.REACT_APP_API}/api/${user ? "doctor" : "patient"}/login`,
+      "POST",
+      { email, password }
+    ).then((res) => {
+      if (res.success) {
+        // Window.localStorage.setItem(res.data.key, res.data.token);
+        localStorage.setItem(res.data.key, res.data.token);
+        navigate(`/${user ? "doctor" : "patient"}`);
+      } else {
+        alert(res.message);
+      }
+    });
+  };
+
+  useEffect(() => {
+    httprequest(
+      `${process.env.REACT_APP_API}/api/${
+        user ? "doctor" : "patient"
+      }/getDetails`,
+      "GET",
+      { email, password }
+    ).then((res) => {
+      if (res.success) {
+        console.log(res.data);
+        // navigate(`/${user ? "doctor" : "patient"}`);
+      } else {
+        alert(res.message);
+      }
+    });
+  }, []);
   return (
     <main className=" font-poppins">
       <div className="grid grid-flow-row gap-4 sm:gap-0 sm:grid-cols-2 h-screen">
@@ -21,13 +55,32 @@ const Login = () => {
           </div>
         </div>
         <div className="px-5 sm:px-10 lg:px-24 flex flex-col justify-center">
-        <div className="flex justify-center mb-4 gap-2">
-            <button className={`${user===0?"bg-[#2EADC5] text-white":"bg-white text-[#2EADC5] border-2 border-[#2EADC5]"} px-4 py-1 rounded-md font-bold `} onClick={()=>setUser(0)}>Patient</button>
-            <button className={`${user===1?"bg-[#2EADC5] text-white":"bg-white text-[#2EADC5] border-2 border-[#2EADC5]"} px-4 py-1 rounded-md font-bold`} onClick={()=>setUser(1)}>Doctor</button> 
-          </div>          
+          <div className="flex justify-center mb-4 gap-2">
+            <button
+              className={`${
+                user === 0
+                  ? "bg-[#2EADC5] text-white"
+                  : "bg-white text-[#2EADC5] border-2 border-[#2EADC5]"
+              } px-4 py-1 rounded-md font-bold `}
+              onClick={() => setUser(0)}
+            >
+              Patient
+            </button>
+            <button
+              className={`${
+                user === 1
+                  ? "bg-[#2EADC5] text-white"
+                  : "bg-white text-[#2EADC5] border-2 border-[#2EADC5]"
+              } px-4 py-1 rounded-md font-bold`}
+              onClick={() => setUser(1)}
+            >
+              Doctor
+            </button>
+          </div>
           <form
             onSubmit={(e) => {
               e.preventDefault();
+              login();
             }}
             className="flex flex-col gap-4"
           >
@@ -44,7 +97,7 @@ const Login = () => {
                   className=" border text-xs focus:outline-none w-full pl-9 py-4 rounded-md"
                   type="email"
                   placeholder="Enter your email"
-                  onChange={(e)=>setName(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
             </div>
@@ -61,7 +114,7 @@ const Login = () => {
                   className=" border text-xs focus:outline-none w-full pl-9 py-4 rounded-md"
                   type="password"
                   placeholder="Enter your name"
-                  onChange={(e)=>setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
