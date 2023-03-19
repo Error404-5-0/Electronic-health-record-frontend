@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Stack } from "@mui/material";
 import Report from "../assets/report.png";
+import { Stack } from "@mui/system";
 
 const Medreccard = (props) => {
   return (

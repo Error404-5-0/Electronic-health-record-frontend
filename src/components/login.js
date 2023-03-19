@@ -12,17 +12,12 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const login = async () => {
-    httprequest(
-      `/api/${user ? "doctor" : "patient"}/login`,
-      "POST",
-      { email, password }
-    ).then((res) => {
-
+    httprequest(`/api/${user ? "doctor" : "patient"}/login`, "POST", {
+      email,
+      password,
+    }).then((res) => {
       if (res.success) {
-        console.log(res.data)
-        // Window.localStorage.setItem(res.data.key, res.data.token);
-        // localStorage.setItem(res.data.key, res.data.token);
-        // navigate(`/${user ? "doctor" : "patient"}`);
+        navigate(`/${user ? "doctor" : "patient"}`);
       } else {
         alert(res.message);
       }
@@ -30,20 +25,14 @@ const Login = () => {
   };
 
   useEffect(() => {
-    httprequest(
-      `${process.env.REACT_APP_API}/api/${
-        user ? "doctor" : "patient"
-      }/getDetails`,
-      "GET",
-      { email, password }
-    ).then((res) => {
-      if (res.success) {
-        console.log(res.data);
-        // navigate(`/${user ? "doctor" : "patient"}`);
-      } else {
-        alert(res.message);
+    httprequest(`/api/${user ? "doctor" : "patient"}/getDetails`, "GET").then(
+      (res) => {
+        if (res.success) {
+          navigate(`/${user ? "doctor" : "patient"}`);
+        } else {
+        }
       }
-    });
+    );
   }, []);
   return (
     <main className=" font-poppins">

@@ -1,5 +1,5 @@
 import { Box, Stack } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import Patientcard from "./Patientcard";
 import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
@@ -8,27 +8,50 @@ import SendIcon from "@mui/icons-material/Send";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
+import DoctorCard from "./DoctorCard";
+import httprequest from "../utils/req";
 
-const Doctorprofile = () => {
-  const [gender, setgender] = React.useState("");
+const Doctorprofile = ({
+  name,
+  email,
+  profileImage,
+  age,
+  gender,
+  experience,
+  degree,
+  recall,
+  setRecall,
+}) => {
+  const [details, setDetails] = useState({ age, gender, experience, degree });
 
-  const [age, setage] = React.useState("");
-  const [exp, setExp] = React.useState("");
-  const [degree, setDegree] = React.useState("");
+  const updateProfile = () => {
+    httprequest("/api/doctor/editDetails", "POST", details).then((res) => {
+      if (res.success) {
+        setRecall(!recall);
+      } else {
+        alert(res.message);
+      }
+    });
+  };
+  // const [gender, setgender] = React.useState("");
 
-  const handleChange = (event) => {
-    setgender(event.target.value);
-  };
+  // const [age, setage] = React.useState("");
+  // const [exp, setExp] = React.useState("");
+  // const [degree, setDegree] = React.useState("");
 
-  const handleage = (event) => {
-    setage(event.target.value);
-  };
-  const handleheight = (event) => {
-    setExp(event.target.value);
-  };
-  const handleweight = (event) => {
-    setDegree(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setgender(event.target.value);
+  // };
+
+  // const handleage = (event) => {
+  //   setage(event.target.value);
+  // };
+  // const handleheight = (event) => {
+  //   setExp(event.target.value);
+  // };
+  // const handleweight = (event) => {
+  //   setDegree(event.target.value);
+  // };
 
   return (
     <Box sx={{ height: "100%", width: "100%" }} p={3}>
@@ -42,7 +65,7 @@ const Doctorprofile = () => {
         >
           Doctor Details
         </Box>
-        <Patientcard />
+        <DoctorCard name={name} email={email} profileImage={profileImage} />
         <Box
           width="100%"
           textAlign={"center"}
@@ -58,7 +81,10 @@ const Doctorprofile = () => {
             <TextField
               id="outlined-required"
               label="Age"
-              onChange={handleage}
+              value={details.age}
+              onChange={(e) => {
+                setDetails({ ...details, age: e.target.value });
+              }}
             />
             <FormControl sx={{ minWidth: 220 }}>
               <InputLabel id="demo-simple-select-helper-label">
@@ -67,9 +93,11 @@ const Doctorprofile = () => {
               <Select
                 labelId="demo-simple-select-helper-label"
                 id="demo-simple-select-helper"
-                value={gender}
                 label="Gender"
-                onChange={handleChange}
+                value={details.gender}
+                onChange={(e) => {
+                  setDetails({ ...details, gender: e.target.value });
+                }}
               >
                 <MenuItem value="Male">Male</MenuItem>
                 <MenuItem value="Female">Female</MenuItem>
@@ -81,16 +109,26 @@ const Doctorprofile = () => {
             <TextField
               id="outlined-required"
               label="Experience"
-              onChange={handleheight}
+              value={details.experience}
+              onChange={(e) => {
+                setDetails({ ...details, experience: e.target.value });
+              }}
             />
             <TextField
               id="outlined-required"
               label="Degree"
-              onChange={handleweight}
+              value={details.degree}
+              onChange={(e) => {
+                setDetails({ ...details, degree: e.target.value });
+              }}
             />
           </Stack>
           <Box alignItems={"center"}>
-            <Button variant="contained" endIcon={<SendIcon />}>
+            <Button
+              variant="contained"
+              endIcon={<SendIcon />}
+              onClick={updateProfile}
+            >
               Upload
             </Button>
           </Box>
