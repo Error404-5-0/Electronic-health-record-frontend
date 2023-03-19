@@ -5,7 +5,6 @@ import { Box } from "@mui/material";
 import Cardcomp from "./Cardcomp";
 import Doctorspage from "./Doctorspage";
 import PatientDetails from "./PatientDetails";
-import MedicalRecord from "./MedicalRecord";
 import Addmedicalrec from "./Addmedicalrec";
 import MedRecord from "./MedRecord";
 

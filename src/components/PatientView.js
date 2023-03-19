@@ -39,7 +39,7 @@ const PatientView = () => {
         </div>
       </div>
       <div className="py-10">
-        <Button variant="contained">Delete</Button>
+        <Button variant="contained">View</Button>
       </div>
     </div>
     </Stack>

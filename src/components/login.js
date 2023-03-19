@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BiUser } from "react-icons/bi";
 import { MdOutlineMailOutline, MdLockOutline } from "react-icons/md";
-import { AppContext } from "../context";
 import voiceImage from "../images/doctor.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import httprequest from "../utils/req";

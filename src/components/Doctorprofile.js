@@ -8,6 +8,7 @@ import SendIcon from "@mui/icons-material/Send";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
+import AddIcon from '@mui/icons-material/Add';
 
 const Doctorprofile = () => {
   const [gender, setgender] = React.useState("");
@@ -38,7 +39,6 @@ const Doctorprofile = () => {
           textAlign={"center"}
           fontSize={35}
           borderRadius={"10px"}
-          sx={{ backgroundColor: "lightblue" }}
         >
           Doctor Details
         </Box>
@@ -48,7 +48,6 @@ const Doctorprofile = () => {
           textAlign={"center"}
           fontSize={35}
           borderRadius={"10px"}
-          sx={{ backgroundColor: "lightblue" }}
         >
           Add More Details
         </Box>
@@ -89,9 +88,9 @@ const Doctorprofile = () => {
               onChange={handleweight}
             />
           </Stack>
-          <Box alignItems={"center"}>
-            <Button variant="contained" endIcon={<SendIcon />}>
-              Upload
+          <Box alignItems={"center"} justifyContent={"center"} display={"flex"}>
+            <Button variant="contained" endIcon={<AddIcon />}>
+              Add
             </Button>
           </Box>
         </Stack>

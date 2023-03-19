@@ -11,7 +11,7 @@ export default function Cardcomp(props) {
   const handleclick = () => {};
   return (
     <Card
-      sx={{ boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.4)" }}
+      sx={{ boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)", borderRadius: "23px" }}
       onClick={props.onClick}
     >
       <CardActionArea>
@@ -22,7 +22,7 @@ export default function Cardcomp(props) {
                 <PersonOutlinedIcon
                   p={1}
                   sx={{
-                    color: "green",
+                    color: "border-sky-600",
                     height: "80%",
                     width: "100%",
                     justifyContent: "center",
