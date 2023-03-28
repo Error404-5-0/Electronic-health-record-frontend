@@ -1,5 +1,6 @@
 const httprequest = async (url, method, params = {}, isMultipart) => {
   let options = {
+    credentials: 'include',
     method,
   };
 
