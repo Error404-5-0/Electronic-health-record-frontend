@@ -22,7 +22,7 @@ const httprequest = async (url, method, params = {}, isMultipart) => {
   if (isMultipart) {
     options.body = params;
   }
-  return await (await fetch(process.env.RECAT_APP_API + url, options)).json();
+  return await (await fetch(process.env.REACT_APP_API + url, options)).json();
 };
 
 export default httprequest;
